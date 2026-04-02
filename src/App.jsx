@@ -356,10 +356,10 @@ function FloatingParticles() {
 function Scene() {
   // Using reliable placeholder images - replace with your actual image paths
   const imageUrls = [
-    "/src/assets/image1.jpg",
-    "/src/assets/image2.jpg",
-    "/src/assets/image3.jpg",
-    "/src/assets/image4.jpg",
+    "/images/image1.jpg",
+    "/images/image2.jpg",
+    "/images/image3.jpg",
+    "/images/image4.jpg",
   ]
   
   return (

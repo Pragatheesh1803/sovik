@@ -1,0 +1,360 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+}
+
+.center {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 50%, #ffd6e5 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Modern Door */
+.door {
+  width: 180px;
+  height: 280px;
+  background: linear-gradient(145deg, #ff6b9d, #ff4d88);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-style: preserve-3d;
+}
+
+.door.open {
+  transform: rotateY(180deg);
+}
+
+.door-emoji {
+  font-size: 60px;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+.door-knob {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.instruction {
+  color: #ff4d88;
+  font-size: 14px;
+  letter-spacing: 2px;
+  background: rgba(255,255,255,0.8);
+  padding: 8px 20px;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+}
+
+/* Scratch Card Styles */
+.scratch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.scratch-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-width: 350px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.scratch-card:active {
+  cursor: grabbing;
+}
+
+.scratch-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.message-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.heart-big {
+  font-size: 50px;
+  display: block;
+  margin-bottom: 15px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.message-content h3 {
+  color: #ff4d88;
+  font-size: 24px;
+  margin: 10px 0;
+  font-family: 'Georgia', serif;
+}
+
+.message-content p {
+  color: #ff88aa;
+  font-size: 14px;
+  margin: 0;
+}
+
+.scratch-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  transition: opacity 0.4s ease;
+}
+
+.scratch-canvas:active {
+  cursor: grabbing;
+}
+
+.scratch-instruction {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #ff88aa;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scratch-progress {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 136, 170, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.scratch-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff4d88, #ff88aa);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.scratch-percent {
+  font-size: 11px;
+  font-weight: bold;
+  color: #ff4d88;
+}
+
+.btn-reveal {
+  background: linear-gradient(135deg, #ff4d88, #ff6b9d);
+  padding: 14px 32px;
+  font-size: 16px;
+  box-shadow: 0 8px 20px rgba(255, 77, 136, 0.4);
+}
+
+/* Floating Hearts */
+.floating-heart {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Animal Animation */
+.animal {
+  width: 180px;
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.15));
+}
+
+/* Buttons */
+.btn {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #ff4d88, #ff6b9d);
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255,77,136,0.3);
+  letter-spacing: 1px;
+}
+
+.btn-glow {
+  animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 5px 15px rgba(255,77,136,0.3); }
+  50% { box-shadow: 0 5px 30px rgba(255,77,136,0.6); }
+}
+
+/* Modern Loader */
+.loader {
+  display: flex;
+  gap: 15px;
+}
+
+.heart-loader {
+  font-size: 40px;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.heart-loader:nth-child(2) { animation-delay: 0.2s; }
+.heart-loader:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  from { transform: translateY(0) scale(1); opacity: 0.5; }
+  to { transform: translateY(-30px) scale(1.2); opacity: 1; }
+}
+
+/* Subtitle */
+.subtitle {
+  color: #ff88aa;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .scratch-card {
+    max-width: 300px;
+  }
+  
+  .message-content h3 {
+    font-size: 20px;
+  }
+  
+  .heart-big {
+    font-size: 40px;
+  }
+  
+  .scratch-instruction {
+    bottom: -45px;
+    font-size: 11px;
+  }
+  
+  .scratch-progress {
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .door {
+    width: 140px;
+    height: 220px;
+  }
+  
+  .animal {
+    width: 130px;
+  }
+  
+  h1 {
+    font-size: 22px;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
+/* 3D Bunny Styles */
+.bunny-wrapper {
+  perspective: 800px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.bunny {
+  width: 180px;
+  transition: transform 0.2s ease, filter 0.3s ease;
+  will-change: transform;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+.bunny-wrapper:hover .bunny {
+  filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.6));
+}
+
+/* Enhanced subtitle */
+.subtitle {
+  color: #ff88aa;
+  font-size: 14px;
+  letter-spacing: 2px;
+  background: rgba(255,255,255,0.5);
+  padding: 5px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+/* Responsive bunny */
+@media (max-width: 768px) {
+  .bunny {
+    width: 140px;
+  }
+  
+  .bunny-wrapper {
+    perspective: 600px;
+  }
+  
+  .subtitle {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bunny {
+    width: 120px;
+  }
+}

@@ -424,7 +424,7 @@ function Welcome({ onNext }) {
         onMouseLeave={() => setHover(false)}
       >
         <img
-          src="/public/images/bunny.png"
+          src="/images/bunny.png"
           className="bunny"
           alt="cute bunny"
           style={{
